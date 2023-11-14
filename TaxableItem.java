@@ -1,12 +1,12 @@
-
 public class TaxableItem extends Item {
-    private double taxRate = 7;
-    
-    public TaxableItem(String name, double price, int quantity, DiscountType discountType, double discountAmount){
+    private double taxRate;
+
+    public TaxableItem(String name, double price, int quantity, DiscountType discountType, double discountAmount, double taxRate) {
         super(name, price, quantity, discountType, discountAmount);
+        setTaxRate(taxRate);
     }
 
-    public double getTaxRate(){
+    public double getTaxRate() {
         return taxRate;
     }
     public void setTaxRate(double rate) {
@@ -15,3 +15,4 @@ public class TaxableItem extends Item {
         }
     }
 }
+
