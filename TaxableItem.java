@@ -10,7 +10,7 @@ public class TaxableItem extends Item {
         return taxRate;
     }
     public void setTaxRate(double rate) {
-        if(rate>=0){
+        if(rate >= 0){
             taxRate = rate;
         }
     }
