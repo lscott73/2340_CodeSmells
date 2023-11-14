@@ -4,11 +4,17 @@ public class Order {
     private List<Item> items;
     private String customerName;
     private String customerEmail;
+    private boolean hasGiftCard;
 
     public Order(List<Item> items, String customerName, String customerEmail) {
         this.items = items;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
+        this.hasGiftCard = checkForGiftCard(items);
+    }
+
+    public boolean hasGiftCard() {
+        return hasGiftCard;
     }
 
     public double calculateTotalPrice() {
@@ -85,15 +91,13 @@ public class Order {
         this.customerEmail = customerEmail;
     }
 
-    public boolean hasGiftCard() {
-        boolean has_gift_card = false;
+    private boolean checkForGiftCard(List<Item> items) {
         for (Item item : items) {
             if (item instanceof GiftCardItem) {
-                has_gift_card = true;
-                break;
+                return true;
             }
         }
-        return has_gift_card;
+        return false;
     }
 
    public void printOrder() {
