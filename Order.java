@@ -5,6 +5,7 @@ public class Order {
     private String customerName;
     private String customerEmail;
     private boolean hasGiftCard;
+    private double giftCard;
 
 
     public Order(List<Item> items, String customerName, String customerEmail) {
