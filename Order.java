@@ -4,6 +4,7 @@ public class Order {
     private List<Item> items;
     private String customerName;
     private String customerEmail;
+    private double giftCard;
 
     public Order(List<Item> items, String customerName, String customerEmail) {
         this.items = items;
@@ -33,11 +34,12 @@ public class Order {
                 total += tax;
             }
         }
-    	if (hasGiftCard()) {
-        	total -= 10.0; // subtract $10 for gift card
-    	}
-    	if (total > 100.0) {
+        if (total > 100.0) {
         	total *= 0.9; // apply 10% discount for orders over $100
+    	}
+    	if (hasGiftCard()) {
+            giftCard = 10.0;
+        	total -= giftCard;
     	}
     	return total;
     }
